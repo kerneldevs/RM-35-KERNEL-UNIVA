@@ -1,3 +1,57 @@
+
+
+
+========================================================================================
+
+RM .35 KERNEL FOR LG OPTIMUS HUB E510 AKA UNIVA 
+
+CREADIT-
+
+RON GOKHLE  @ xda-developers.com
+
+========================================================================================
+
+
+How to build-
+
+- git clone git://github.com/kerneldevs/RM_KERNEL_35_UNIVA.git
+
+now in your pc have rm kernel source code so move to next step
+
+- cd RM_KERNEL_35_UNIVA
+
+                                             
+NOW YOU NEED TOOLCHAIN ON YOUR PC. GET IT AND CREATE A FOLDER CALLED 'prebuilt '.
+NOW IN PREBUILT CREATE NEW FODLER CALL 'linux-x86' NOW CREATE ANOTHER ONE IN X86 CALLED 'toolchain' AND PASTE 
+TOOLCHAIN FOLDER HERE 
+NOW START TO COMPILE
+
+- make rm_kernel_defconfig
+
+- make ARCH=arm CROSS_COMPILE=../prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi- -j4
+
+ 
+(NOTICE IF YOU ARE USING OTHER TOOLCHAIN CHANGE THE CHANGE ACCORDING TO IT)
+
+OR YOU CAN USE THIS TOO 
+
+- make rm_kernel_defconfig
+
+- ./build-kernel.sh
+
+
+ONCE YOUR COMPILE DONE 
+YOU WILL GET ZIMAGE UNDER ARCH/ARM/BOOT
+WIFI DRIVER UNDER DRIVER/NET/wireless/BCM/4330
+ 
+NOW YOU HAVE YOUR OWN COMPILED KERNENL MAKE ZIP AND FLASH IT
+ENJOY AND HAVE FUN 
+
+
+                                 
+
+========================================================================================
+
 	Linux kernel release 2.6.xx <http://kernel.org/>
 
 These are the release notes for Linux version 2.6.  Read them carefully,
