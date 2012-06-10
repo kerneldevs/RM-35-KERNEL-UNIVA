@@ -1,6 +1,5 @@
 
 
-
 ========================================================================================
 
 RM .35 KERNEL FOR LG OPTIMUS HUB E510 AKA UNIVA 
@@ -32,12 +31,6 @@ NOW START TO COMPILE
 
  
 (NOTICE IF YOU ARE USING OTHER TOOLCHAIN CHANGE THE CHANGE ACCORDING TO IT)
-
-OR YOU CAN USE THIS TOO 
-
-- make rm_kernel_defconfig
-
-- ./build-kernel.sh
 
 
 ONCE YOUR COMPILE DONE 
