@@ -394,7 +394,7 @@ config MSM_STACKED_MEMORY
 config PHYS_OFFSET
 	hex
 	#LGE_CHANGE, for 4G DDR support
-	default "0x12800000" if MACH_MSM7X27_THUNDERG
+	default "0x12800000" if MACH_MSM7X27_THUNDERG || MACH_MSM7X27_ALESSI
 	default "0x12200000" if MACH_MSM7X27_THUNDERC
 	default "0x12800000" if MACH_MSM7X27_THUNDERA
 	default "0x12800000" if MACH_MSM7X27_GELATO
@@ -953,12 +953,27 @@ config MSM_CPU_FREQ_SET_MIN_MAX
 config MSM_CPU_FREQ_MAX
 	int "Max CPU Frequency"
 	depends on MSM_CPU_FREQ_SET_MIN_MAX
-	default 600000
+	default 384000
 
 config MSM_CPU_FREQ_MIN
 	int "Min CPU Frequency"
 	depends on MSM_CPU_FREQ_SET_MIN_MAX
 	default 245760
+
+config MSM7X27_OVERCLOCK
+	bool "Enable SoC overclocking"
+	depends on MSM_CPU_FREQ_SET_MIN_MAX
+	depends on MACH_MSM7X27_THUNDERG
+	default n
+	help
+	  Enable support for non-standard acpuclock frequencies/voltages.
+
+config MSM7X27_BACONMAKER
+	bool "Enable SoC overclocking to dangerous frequencies"
+	depends on MSM7X27_OVERCLOCK
+	default n
+	help
+	  Enable support for dangerous acpuclock frequencies/voltages.
 
 endif # CPU_FREQ_MSM
 
@@ -1232,7 +1247,7 @@ config MSM_RPM_LOG
 	  via a debugfs node.
 
 config MSM_RPM_STATS_LOG
-	tristate "MSM Resource Power Manager Stat Driver
+	tristate "MSM Resource Power Manager Stat Driver"
 	depends on DEBUG_FS
 	depends on ARCH_MSM8X60
 	default n
